@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { MatButtonModule } from '@angular/material/button';
+import { SharedService } from './shared/shared.service';
 
 @NgModule({
   declarations: [AppComponent, EditTaskComponent],
@@ -28,7 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatDialogModule,
     MatButtonModule,
   ],
-  providers: [],
+  providers: [SharedService],
   entryComponents: [EditTaskComponent],
   bootstrap: [AppComponent],
 })
