@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { config } from 'rxjs';
-import { EditTaskComponent } from './edit-task/edit-task.component';
+import { EditTaskComponent } from './common/components/dialogs/edit-task/edit-task.component';
 import { SharedService } from './shared/shared.service';
 
 @Component({
