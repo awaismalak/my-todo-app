@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { config } from 'rxjs';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { SharedService } from './shared/shared.service';
 
@@ -15,7 +16,7 @@ export class AppComponent {
   ) {}
   title = 'My todo App';
   inputData = '';
-  editeddata = '';
+  editeDdata = '';
 
   data = this.sharedService.data;
 
@@ -32,10 +33,17 @@ export class AppComponent {
     this.data.splice(index, 1);
   }
 
-  openDialog() {
-    this.dialog
-      .open(EditTaskComponent)
-      .afterClosed()
-      .subscribe((data) => (this.editeddata = data));
+  openDialog(index: any) {
+    let test = this.data.forEach((item, itemIndex) => {
+      if (itemIndex === index) {
+        let config: MatDialogConfig = {
+          data: { serviceData: item },
+        };
+        this.dialog
+          .open(EditTaskComponent, config)
+          .afterClosed()
+          .subscribe((data) => (this.editeDdata = data));
+      }
+    });
   }
 }

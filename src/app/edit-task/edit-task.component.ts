@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { inject } from '@angular/core/testing';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-edit-task',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditTaskComponent implements OnInit {
   editedText = '';
-  constructor() {}
+  myData: { taskTtle?: string; timing?: string } = {};
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { serviceData: {} }) {
+    this.myData = data.serviceData;
+  }
 
   ngOnInit(): void {}
   closeDialog() {
