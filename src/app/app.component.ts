@@ -33,16 +33,10 @@ export class AppComponent {
   }
 
   openDialog(index: any) {
-    let test = this.data.forEach((item, itemIndex) => {
-      if (itemIndex === index) {
-        let config: MatDialogConfig = {
-          data: { serviceData: item },
-        };
-        this.dialog
-          .open(EditTaskComponent, config)
-          .afterClosed()
-          .subscribe((data) => (this.editeDdata = data));
-      }
-    });
+    let serviceData = this.data.find((_, i) => i === index);
+    this.dialog
+      .open(EditTaskComponent, { data: { serviceData } })
+      .afterClosed()
+      .subscribe((data) => (this.editeDdata = data));
   }
 }
