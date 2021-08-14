@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-task.component.scss'],
 })
 export class EditTaskComponent implements OnInit {
+  editedText = '';
   constructor() {}
 
   ngOnInit(): void {}
   closeDialog() {
-    alert('Dailog should be closed');
+    alert(this.editedText);
   }
 }

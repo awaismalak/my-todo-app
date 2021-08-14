@@ -3,7 +3,7 @@
     <mat-toolbar color="primary">
       <span>Edit Task</span>
       <span class="example-spacer"></span>
-      <mat-icon class="closeIcon" (click)="closeDialog()">close</mat-icon>
+      <mat-icon class="closeIcon" mat-dialog-close>close</mat-icon>
     </mat-toolbar>
 
     <!-- input data is hear -->
@@ -11,10 +11,15 @@
     <form class="example-form">
       <mat-form-field style="width: 100%" appearance="fill">
         <mat-label>Edit Task</mat-label>
-        <input matInput />
+        <input name="text" matInput [(ngModel)]="editedText" />
       </mat-form-field>
       <div class="btnCover">
-        <button mat-raised-button color="primary" class="flot-right">
+        <button
+          mat-raised-button
+          color="primary"
+          [mat-dialog-close]="editedText"
+          class="flot-right"
+        >
           Submit
         </button>
       </div>

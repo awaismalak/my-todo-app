@@ -15,6 +15,7 @@ export class AppComponent {
   ) {}
   title = 'My todo App';
   inputData = '';
+  editeddata = '';
 
   data = this.sharedService.data;
 
@@ -32,6 +33,9 @@ export class AppComponent {
   }
 
   openDialog() {
-    this.dialog.open(EditTaskComponent);
+    this.dialog
+      .open(EditTaskComponent)
+      .afterClosed()
+      .subscribe((data) => (this.editeddata = data));
   }
 }
