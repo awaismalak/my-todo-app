@@ -8,15 +8,19 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./edit-task.component.scss'],
 })
 export class EditTaskComponent implements OnInit {
-  editedText = '';
   myData: { taskTtle?: string; timing?: string } = {};
+
+  editedText;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: { serviceData: {} }) {
     this.myData = data.serviceData;
+    this.editedText = this.myData.taskTtle;
   }
 
   ngOnInit(): void {}
-  closeDialog() {
-    alert(this.editedText);
-  }
+  // closeDialog() {
+  //   alert(this.editedText);
+  // }
+
+  afterEdit() {}
 }
