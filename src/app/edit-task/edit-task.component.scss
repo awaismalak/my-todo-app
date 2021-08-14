@@ -1,0 +1,13 @@
+#dialog {
+  width: 700px;
+  .btnCover {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .closeIcon {
+    cursor: pointer;
+  }
+}
+.example-spacer {
+  flex: 1 1 auto;
+}

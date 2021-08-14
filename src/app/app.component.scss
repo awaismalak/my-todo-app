@@ -1,0 +1,29 @@
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+mat-card {
+  width: 90%;
+  margin: auto;
+}
+
+mat-form-field {
+  width: 100%;
+}
+.taskCover {
+  font-size: 15px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+.timing {
+  display: flex;
+  justify-content: space-between;
+
+  .deleteIcon {
+    cursor: pointer;
+  }
+}
