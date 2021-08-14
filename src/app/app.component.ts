@@ -33,10 +33,6 @@ export class AppComponent {
   }
 
   openDialog(index: any) {
-    let serviceData = this.data.find((_, i) => i === index);
-    this.dialog
-      .open(EditTaskComponent, { data: { serviceData } })
-      .afterClosed()
-      .subscribe((data) => (this.editeDdata = data));
+    this.dialog.open(EditTaskComponent, { data: { index } });
   }
 }

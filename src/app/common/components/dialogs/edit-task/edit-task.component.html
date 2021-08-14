@@ -11,14 +11,14 @@
     <form class="example-form">
       <mat-form-field style="width: 100%" appearance="fill">
         <mat-label>Edit Task</mat-label>
-        <input name="text" matInput [(ngModel)]="editedText" />
+
+        <input name="text" matInput [(ngModel)]="text" />
       </mat-form-field>
       <div class="btnCover">
         <button
           mat-raised-button
           color="primary"
-          [mat-dialog-close]="editedText"
-          (click)="afterEdit()"
+          (click)="save()"
           class="flot-right"
         >
           Submit
@@ -27,6 +27,5 @@
     </form>
 
     <!-- input data is hear -->
-    <h1>{{ myData | json }}</h1>
   </mat-card>
 </div>

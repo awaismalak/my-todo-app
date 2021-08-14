@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { inject } from '@angular/core/testing';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
   selector: 'app-edit-task',
@@ -8,19 +9,28 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./edit-task.component.scss'],
 })
 export class EditTaskComponent implements OnInit {
-  myData: { taskTtle?: string; timing?: string } = {};
+  itemIndex?: number;
+  text: string = '';
 
-  editedText;
+  constructor(
+    private dialog: MatDialogRef<EditTaskComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { index: number },
+    public service: SharedService
+  ) {
+    this.itemIndex = data.index;
+    this.text = this.itemToEdit.taskTtle;
+  }
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: { serviceData: {} }) {
-    this.myData = data.serviceData;
-    this.editedText = this.myData.taskTtle;
+  get itemToEdit(): any {
+    return this.itemIndex != undefined ? this.service.data[this.itemIndex] : {};
   }
 
   ngOnInit(): void {}
-  // closeDialog() {
-  //   alert(this.editedText);
-  // }
 
-  afterEdit() {}
+  save() {
+    if (this.itemIndex != undefined) {
+      this.service.data[this.itemIndex].taskTtle = this.text;
+      this.dialog.close();
+    }
+  }
 }
