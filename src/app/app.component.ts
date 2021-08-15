@@ -15,15 +15,15 @@ export class AppComponent {
   ) {}
   title = 'My todo App';
   inputData = '';
-  editeDdata = '';
+  editedData = '';
 
   data = this.sharedService.data;
 
   createTask() {
     if (this.inputData.length > 1) {
       this.data.unshift({
-        taskTtle: this.inputData,
-        timing: 'this is auto ginrated',
+        taskTitle: this.inputData,
+        timing: 'this is auto genrated',
       });
       this.inputData = '';
     }
@@ -33,6 +33,10 @@ export class AppComponent {
   }
 
   openDialog(index: any) {
+    var d = new Date().toISOString().slice(0, 10);
+
+    alert(d);
+
     this.dialog.open(EditTaskComponent, { data: { index } });
   }
 }

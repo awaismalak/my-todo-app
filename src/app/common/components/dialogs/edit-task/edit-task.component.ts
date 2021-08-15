@@ -18,7 +18,7 @@ export class EditTaskComponent implements OnInit {
     public service: SharedService
   ) {
     this.itemIndex = data.index;
-    this.text = this.itemToEdit.taskTtle;
+    this.text = this.itemToEdit.taskTitle;
   }
 
   get itemToEdit(): any {
@@ -29,7 +29,7 @@ export class EditTaskComponent implements OnInit {
 
   save() {
     if (this.itemIndex != undefined) {
-      this.service.data[this.itemIndex].taskTtle = this.text;
+      this.service.data[this.itemIndex].taskTitle = this.text;
       this.dialog.close();
     }
   }

@@ -32,7 +32,7 @@
   <div class="task">
     <div class="container-fluid">
       <div class="row taskCover" *ngFor="let task of data; let index = index">
-        <div class="col-6">{{ task.taskTtle }}</div>
+        <div class="col-6">{{ task.taskTitle }}</div>
         <div class="col-6 timing">
           {{ task.timing }}
           <span class="deleteIcon">
@@ -44,4 +44,4 @@
     </div>
   </div>
 </mat-card>
-<h1>{{ editeDdata }}</h1>
+<h1>{{ editedData }}</h1>

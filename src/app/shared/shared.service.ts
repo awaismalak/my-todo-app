@@ -7,19 +7,19 @@ export class SharedService {
   constructor() {}
   data = [
     {
-      taskTtle: 'work',
+      taskTitle: 'work',
       timing: '10 days ago',
     },
     {
-      taskTtle: 'cricket',
+      taskTitle: 'cricket',
       timing: '12 days ago',
     },
     {
-      taskTtle: 'hockey',
+      taskTitle: 'hockey',
       timing: '13 days ago',
     },
     {
-      taskTtle: 'football',
+      taskTitle: 'football',
       timing: '14 days ago',
     },
   ];
