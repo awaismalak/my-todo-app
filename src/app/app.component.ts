@@ -17,13 +17,15 @@ export class AppComponent {
   inputData = '';
   editedData = '';
 
+  date = new Date().toISOString().slice(0, 10);
+
   data = this.sharedService.data;
 
   createTask() {
     if (this.inputData.length > 1) {
       this.data.unshift({
         taskTitle: this.inputData,
-        timing: 'this is auto genrated',
+        timing: 'This task created on' + ' ' + this.date,
       });
       this.inputData = '';
     }
@@ -33,10 +35,6 @@ export class AppComponent {
   }
 
   openDialog(index: any) {
-    var d = new Date().toISOString().slice(0, 10);
-
-    alert(d);
-
     this.dialog.open(EditTaskComponent, { data: { index } });
   }
 }

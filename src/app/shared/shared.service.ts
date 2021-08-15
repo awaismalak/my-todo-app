@@ -8,19 +8,19 @@ export class SharedService {
   data = [
     {
       taskTitle: 'work',
-      timing: '10 days ago',
+      timing: 'This task created on 2021-08-12',
     },
     {
       taskTitle: 'cricket',
-      timing: '12 days ago',
+      timing: 'This task created on 2021-08-13',
     },
     {
       taskTitle: 'hockey',
-      timing: '13 days ago',
+      timing: 'This task created on 2021-08-14',
     },
     {
       taskTitle: 'football',
-      timing: '14 days ago',
+      timing: 'This task created on 2021-08-15',
     },
   ];
 }

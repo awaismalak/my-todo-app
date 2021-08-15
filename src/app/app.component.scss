@@ -18,10 +18,16 @@ mat-form-field {
   height: 50px;
   display: flex;
   align-items: center;
+  padding: 10px;
+  &:hover {
+    background-color: #ccc;
+    border-radius: 5px;
+  }
 }
 .timing {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   .deleteIcon {
     cursor: pointer;

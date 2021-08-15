@@ -13,6 +13,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedService } from './shared/shared.service';
 import { EditTaskComponent } from './common/components/dialogs/edit-task/edit-task.component';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [AppComponent, EditTaskComponent],
@@ -28,6 +29,7 @@ import { EditTaskComponent } from './common/components/dialogs/edit-task/edit-ta
     FormsModule,
     MatDialogModule,
     MatButtonModule,
+    MatListModule,
   ],
   providers: [SharedService],
   entryComponents: [EditTaskComponent],
