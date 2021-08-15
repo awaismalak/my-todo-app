@@ -39,7 +39,7 @@ export class AppComponent {
     this.dialog.open(EditTaskComponent, { data: { index } });
   }
 
-  myFun() {
+  emojisHideShow() {
     var emojisDisplay: any = document.getElementById('emojisContainer');
 
     if (emojisDisplay.style.display === 'none') {
@@ -51,5 +51,7 @@ export class AppComponent {
 
   addEmoji(event: any) {
     this.inputData = this.inputData + ' ' + event.emoji.native;
+    var emojisDisplay: any = document.getElementById('emojisContainer');
+    emojisDisplay.style.display = 'none';
   }
 }
