@@ -26,7 +26,9 @@
       [(ngModel)]="inputData"
       (keydown.enter)="createTask()"
     />
-    <mat-icon matSuffix (click)="myFun()">sentiment_very_satisfied</mat-icon>
+    <mat-icon matSuffix (click)="emojisHideShow()"
+      >sentiment_very_satisfied</mat-icon
+    >
 
     <div id="emojisContainer">
       <emoji-mart
