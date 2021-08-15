@@ -38,12 +38,18 @@ export class AppComponent {
   openDialog(index: any) {
     this.dialog.open(EditTaskComponent, { data: { index } });
   }
+
   myFun() {
-    const getid = document.getElementById('emojisContainer');
-    getid?.setAttribute('style', 'display:block');
+    var emojisDisplay: any = document.getElementById('emojisContainer');
+
+    if (emojisDisplay.style.display === 'none') {
+      emojisDisplay.style.display = 'block';
+    } else {
+      emojisDisplay.style.display = 'none';
+    }
   }
 
   addEmoji(event: any) {
-    console.log(event);
+    this.inputData = this.inputData + ' ' + event.emoji.native;
   }
 }
