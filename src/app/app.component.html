@@ -26,14 +26,22 @@
       [(ngModel)]="inputData"
       (keydown.enter)="createTask()"
     />
-    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-icon matSuffix (click)="myFun()">sentiment_very_satisfied</mat-icon>
+
+    <div id="emojisContainer">
+      <emoji-mart
+        (emojiClick)="addEmoji($event)"
+        title="Pick your emoji…"
+        emoji="point_up"
+      ></emoji-mart>
+    </div>
   </mat-form-field>
 
   <div class="task">
     <div class="container-fluid">
       <div class="row taskCover" *ngFor="let task of data; let index = index">
-        <div class="col-6">{{ task.taskTitle }}</div>
-        <div class="col-6 timing">
+        <div class="col-lg-6 col-3">{{ task.taskTitle }}</div>
+        <div class="col-lg-6 col-9 timing">
           {{ task.timing }}
           <span class="deleteIcon">
             <mat-icon (click)="openDialog(index)">edit</mat-icon> &nbsp;&nbsp;
@@ -44,4 +52,5 @@
     </div>
   </div>
 </mat-card>
+
 <h1>{{ editedData }}</h1>

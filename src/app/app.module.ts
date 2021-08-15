@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { SharedService } from './shared/shared.service';
 import { EditTaskComponent } from './common/components/dialogs/edit-task/edit-task.component';
 import { MatListModule } from '@angular/material/list';
+import { PickerModule } from '@ctrl/ngx-emoji-mart';
 
 @NgModule({
   declarations: [AppComponent, EditTaskComponent],
@@ -30,6 +31,7 @@ import { MatListModule } from '@angular/material/list';
     MatDialogModule,
     MatButtonModule,
     MatListModule,
+    PickerModule,
   ],
   providers: [SharedService],
   entryComponents: [EditTaskComponent],

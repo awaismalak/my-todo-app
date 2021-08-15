@@ -16,6 +16,7 @@ export class AppComponent {
   title = 'My todo App';
   inputData = '';
   editedData = '';
+  display = false;
 
   date = new Date().toISOString().slice(0, 10);
 
@@ -36,5 +37,13 @@ export class AppComponent {
 
   openDialog(index: any) {
     this.dialog.open(EditTaskComponent, { data: { index } });
+  }
+  myFun() {
+    const getid = document.getElementById('emojisContainer');
+    getid?.setAttribute('style', 'display:block');
+  }
+
+  addEmoji(event: any) {
+    console.log(event);
   }
 }
