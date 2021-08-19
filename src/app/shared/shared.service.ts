@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class SharedService {
   constructor() {}
+
   data = [
     {
       taskTitle: 'work',
@@ -23,4 +24,10 @@ export class SharedService {
       timing: 'This task created on 2021-08-15',
     },
   ];
+
+  passData() {
+    return fetch('http://localhost:5000/tasks')
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }
 }

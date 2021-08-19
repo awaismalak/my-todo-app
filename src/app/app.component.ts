@@ -22,6 +22,8 @@ export class AppComponent {
 
   data = this.sharedService.data;
 
+  urlData = this.sharedService.passData();
+
   createTask() {
     if (this.inputData.length > 1) {
       this.data.unshift({
@@ -53,5 +55,10 @@ export class AppComponent {
     this.inputData = this.inputData + ' ' + event.emoji.native;
     var emojisDisplay: any = document.getElementById('emojisContainer');
     emojisDisplay.style.display = 'none';
+  }
+
+  myFunction2() {
+    alert('Testing Button');
+    console.log(this.urlData);
   }
 }
