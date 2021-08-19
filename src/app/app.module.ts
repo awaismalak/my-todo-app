@@ -15,9 +15,10 @@ import { SharedService } from './shared/shared.service';
 import { EditTaskComponent } from './common/components/dialogs/edit-task/edit-task.component';
 import { MatListModule } from '@angular/material/list';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
+import { InputEmojiComponent } from './common/components/input-emoji/input-emoji.component';
 
 @NgModule({
-  declarations: [AppComponent, EditTaskComponent],
+  declarations: [AppComponent, EditTaskComponent, InputEmojiComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

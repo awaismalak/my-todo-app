@@ -1,0 +1,20 @@
+<mat-form-field appearance="outline" style="width: 100%">
+  <mat-label>Please Add Task</mat-label>
+  <input
+    matInput
+    placeholder="Your Task"
+    [(ngModel)]="inputData"
+    (keydown.enter)="createTask()"
+  />
+  <mat-icon matSuffix (click)="emojisHideShow()"
+    >sentiment_very_satisfied</mat-icon
+  >
+
+  <div id="emojisContainer">
+    <emoji-mart
+      (emojiClick)="addEmoji($event)"
+      title="Pick your emoji…"
+      emoji="point_up"
+    ></emoji-mart>
+  </div>
+</mat-form-field>
