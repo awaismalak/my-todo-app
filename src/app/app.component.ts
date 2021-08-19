@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { EditTaskComponent } from './common/components/dialogs/edit-task/edit-task.component';
 import { SharedService } from './shared/shared.service';
@@ -8,7 +8,11 @@ import { SharedService } from './shared/shared.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  date = new Date().toISOString().slice(0, 10);
+  data = this.sharedService.data;
+  tasks: any = [];
+
   constructor(
     private sharedService: SharedService,
     private dialog: MatDialog
@@ -17,12 +21,6 @@ export class AppComponent {
   inputData = '';
   editedData = '';
   display = false;
-
-  date = new Date().toISOString().slice(0, 10);
-
-  data = this.sharedService.data;
-
-  urlData = this.sharedService.passData();
 
   createTask() {
     if (this.inputData.length > 1) {
@@ -37,8 +35,8 @@ export class AppComponent {
     this.data.splice(index, 1);
   }
 
-  openDialog(index: any) {
-    this.dialog.open(EditTaskComponent, { data: { index } });
+  openDialog(task: any) {
+    this.dialog.open(EditTaskComponent, { data: { task } });
   }
 
   emojisHideShow() {
@@ -59,6 +57,12 @@ export class AppComponent {
 
   myFunction2() {
     alert('Testing Button');
-    console.log(this.urlData);
+    console.log(this.tasks);
+  }
+
+  async ngOnInit() {
+    await this.sharedService.getTasks().then((data) => {
+      this.tasks = data;
+    });
   }
 }

@@ -1,10 +1,10 @@
 <mat-form-field appearance="outline" style="width: 100%">
-  <mat-label>Please Add Task</mat-label>
+  <mat-label>Please {{ defaultText ? "Edit" : "Add" }} Task</mat-label>
   <input
     matInput
     placeholder="Your Task"
     [(ngModel)]="inputData"
-    (keydown.enter)="createTask()"
+    (keydown.enter)="onEnter.emit('')"
   />
   <mat-icon matSuffix (click)="emojisHideShow()"
     >sentiment_very_satisfied</mat-icon

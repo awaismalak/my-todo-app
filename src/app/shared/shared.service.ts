@@ -25,9 +25,9 @@ export class SharedService {
     },
   ];
 
-  passData() {
-    return fetch('http://localhost:5000/tasks')
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+  getTasks() {
+    return fetch('https://113eb160d73e.ngrok.io/tasks').then((res) =>
+      res.json()
+    );
   }
 }

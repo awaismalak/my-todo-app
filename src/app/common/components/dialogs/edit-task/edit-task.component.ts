@@ -14,11 +14,10 @@ export class EditTaskComponent implements OnInit {
 
   constructor(
     private dialog: MatDialogRef<EditTaskComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { index: number },
+    @Inject(MAT_DIALOG_DATA) public data: { task: any },
     public service: SharedService
   ) {
-    this.itemIndex = data.index;
-    this.text = this.itemToEdit.taskTitle;
+    this.text = data.task.taskTitle;
   }
 
   get itemToEdit(): any {

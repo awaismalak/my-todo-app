@@ -22,12 +22,12 @@
 
   <div class="task">
     <div class="container-fluid">
-      <div class="row taskCover" *ngFor="let task of data; let index = index">
+      <div class="row taskCover" *ngFor="let task of tasks; let index = index">
         <div class="col-lg-6 col-3">{{ task.taskTitle }}</div>
         <div class="col-lg-6 col-9 timing">
           {{ task.timing }}
           <span class="deleteIcon">
-            <mat-icon (click)="openDialog(index)">edit</mat-icon> &nbsp;&nbsp;
+            <mat-icon (click)="openDialog(task)">edit</mat-icon> &nbsp;&nbsp;
             <mat-icon (click)="deleteTask(index)">delete</mat-icon>
           </span>
         </div>

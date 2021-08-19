@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
@@ -8,8 +8,8 @@ import { SharedService } from 'src/app/shared/shared.service';
 })
 export class InputEmojiComponent implements OnInit {
   inputData = '';
-  editedData = '';
-  display = false;
+  @Output() onEnter = new EventEmitter();
+  @Input() defaultText = '';
 
   date = new Date().toISOString().slice(0, 10);
 
@@ -17,16 +17,8 @@ export class InputEmojiComponent implements OnInit {
 
   constructor(private sharedService: SharedService) {}
 
-  ngOnInit(): void {}
-
-  createTask() {
-    if (this.inputData.length > 1) {
-      this.data.unshift({
-        taskTitle: this.inputData,
-        timing: 'This task created on' + ' ' + this.date,
-      });
-      this.inputData = '';
-    }
+  ngOnInit(): void {
+    this.inputData += this.defaultText;
   }
 
   emojisHideShow() {
